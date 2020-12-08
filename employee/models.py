@@ -20,7 +20,7 @@ class Employee(models.Model):
 
     first_name = models.CharField(max_length=120)
     last_name = models.TextField()
-    spetiality = models.TextField()
+    speciality = models.TextField()
     company = models.ForeignKey('Company', related_name='emploee', on_delete=models.CASCADE)
 
     def __str__(self):

@@ -7,6 +7,8 @@ from .views import ArticleView
 APP_NAME = "employee"
 
 
+# 2nd path to update employee fields
 urlpatterns = [
     path('employee/', EmployeeView.as_view()),
+    path('employee/<int:pk>', EmployeeView.as_view())
 ]
