@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from rest_framework.generics import get_object_or_404
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
@@ -8,6 +8,11 @@ from .serializers import EmployeeSerializer, CompanySerializer, Company_PartnerS
 
 
 class EmployeeView(ListCreateAPIView):
+    """
+    """
+
+    template_name = 'index.html'
+    context_object_name = 'employee_list'
 
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
@@ -17,9 +22,9 @@ class EmployeeView(ListCreateAPIView):
         return serializer.save(company=company)
 
 
-class SingleEmployeeView(RetrieveUpadateDestroyAPIView):
+class SingleEmployeeView(RetrieveUpdateDestroyAPIView):
     """
-    To update, delete, lookup 1 an employee.
+    To update, delete, lookup an employee.
 
     """
 
@@ -48,3 +53,37 @@ class SingleCompany_PartnerView(RetrieveUpadateDestroyAPIView):
 
     queryset = Company_Partner.objects.all()
     serializer_class = Company_PartnerSerializer
+
+
+class CRUD():
+    """ 
+    Create, Edit, Delete a record.
+
+    """
+    def add(self, request):
+
+        if request.method == 'POST':
+            form = RecordForm(request.POST)
+            if form.is_valid():
+                form.save()
+            return redirect('index')
+        form = RecordForm()
+        return render(request,'record.html', {'form': form})
+
+    def edit(self, request, pk, template_name='edit.html'):
+
+        print(request)
+        record = get_object_or_404(Employee, pk=pk)
+        form = RecordForm(request.POST or None, instance=record)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        return render(request, template_name, {'form':form})
+
+    def delete(self, request, pk, template_name='confirm_delete.html'):
+
+        record = get_object_or_404(Post, pk=pk)    
+        if request.method=='POST':
+            record.delete()
+            return redirect('index')
+        return render(request, template_name, {'object':post})

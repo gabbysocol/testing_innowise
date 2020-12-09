@@ -4,6 +4,8 @@ from django.db import models
 
 
 class Company(models.Model):
+    """
+    """
     
     name = models.CharField(max_length=255)
 
@@ -32,4 +34,5 @@ class Employee(models.Model):
     company = models.ForeignKey('Company', related_name='employee', on_delete=models.CASCADE)
 
     def __str__(self):
+        
         return self.first_name + self.last_name

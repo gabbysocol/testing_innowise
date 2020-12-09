@@ -3,3 +3,4 @@
 python_version>="3.5"
 django
 djangorestframework
+django-widget-tweaks

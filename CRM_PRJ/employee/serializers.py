@@ -1,3 +1,7 @@
+"""
+Classes for object serialization.
+"""
+
 from rest_framework import serializers
 
 from .models import Employee, Company, Company_Partner

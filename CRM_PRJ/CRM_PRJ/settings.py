@@ -24,7 +24,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'employee',
+    'widget_tweaks',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
