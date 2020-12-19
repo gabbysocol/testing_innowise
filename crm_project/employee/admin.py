@@ -9,7 +9,7 @@ from .models import Employee, Company, Company_Partner
 
 class EmployeeApplicationAdmin(admin.ModelAdmin):
 
-    list_display = ( 'first_name', 'last_name', 'speciality', 'company')
+    list_display = ('first_name', 'last_name', 'speciality', 'company')
     list_filter = ('speciality', 'company')
 
 

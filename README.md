@@ -1,40 +1,48 @@
 *** 
 
-<br> 
-##Theme: 
+<br>   
+
+#### Topic: 
 A simple CRUD application for CRM system 
 
-###contents
+###### contents
 
 * :earth_africa: __Adding companies__  
 
 * :earth_africa: __Adding company stuff__   
 
-* :earth_africa: __Filtration stuff by spetiality__  
+* :earth_africa: __Filtration stuff by speciality__  
 
 * :earth_africa: __Adding relationship between companies__  
 
 ***  
 
 <br> 
-##To start:
 
-# Clone the project
-git clone https://github.com/gabbysocol/testing_innowise.git
+#### To start:
 
-cd CRM_PRJ
+ Clone the project  
 
-# Create Python 3 virtual environment 
-virtualenv CRM
+    git clone https://github.com/gabbysocol/testing_innowise.git
 
-# Activate the virtual environment
-CRM/Scripts/activate
+    cd crm_project
 
-# Install required packages
-pip install -r requirements.txt
+ Create Python 3 virtual environment  
 
-# Create database tables for the project (used SQLite DB)
-python manage.py migrate
+    virtualenv crm
 
-# Run the development server
-python manage.py runserver
+ Activate the virtual environment  
+
+    crm/Scripts/activate
+
+ Install required packages  
+
+    pip install -r requirements.txt
+
+ Create database tables for the project  
+    
+    python manage.py migrate
+
+ Run the development server
+
+    python manage.py runserver
